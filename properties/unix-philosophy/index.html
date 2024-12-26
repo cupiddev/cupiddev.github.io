@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Unix Philosophy - CUPID - for joyful code</title>
+<meta name="generator" content="Hugo 0.140.1">
+<link href="https://cupid.dev//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://cupid.dev/properties/unix-philosophy/">
+<link rel="stylesheet" href="https://cupid.dev/css/theme.min.css">
+<link rel="stylesheet" href="https://cupid.dev/css/chroma.min.css">
+<script defer src="https://cupid.dev//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://cupid.dev/js/bundle.js"></script><style>
+:root {}
+</style>
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Unix Philosophy">
+  <meta name="twitter:description" content="Unix and I are about the same age; we both started in 1969, and Unix has become the most prevalent OS on the planet. During the 1990s, every serious computer hardware manufacturer had its own Unix, until the key open source variants, Linux and FreeBSD, became ubiquitous. These days, it runs almost all business servers, both cloud and on-premise, in the form of Linux; it runs in embedded systems and network devices; it underpins the macOS and Android operating systems; it even comes as an optional subsystem with Microsoft Windows!">
+
+  <meta itemprop="name" content="Unix Philosophy">
+  <meta itemprop="description" content="Unix and I are about the same age; we both started in 1969, and Unix has become the most prevalent OS on the planet. During the 1990s, every serious computer hardware manufacturer had its own Unix, until the key open source variants, Linux and FreeBSD, became ubiquitous. These days, it runs almost all business servers, both cloud and on-premise, in the form of Linux; it runs in embedded systems and network devices; it underpins the macOS and Android operating systems; it even comes as an optional subsystem with Microsoft Windows!">
+  <meta itemprop="datePublished" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="661"><link rel="stylesheet" href="/css/custom.css">
+<script src="https://cdn.usefathom.com/script.js" data-site="TORUOGKU" defer></script>
+</head>
+<body><div class="container"><header>
+<h1>CUPID - for joyful code</h1>
+</header>
+
+
+<div class="content-container">
+<main><h1>Unix Philosophy</h1><p>Unix and I are about the same age; we both started in 1969, and Unix has become the most prevalent OS on the planet. During the 1990s, every serious computer hardware manufacturer had its own Unix, until the key open source variants, Linux and FreeBSD, became ubiquitous. These days, it runs almost all business servers, both cloud and on-premise, in the form of Linux; it runs in embedded systems and network devices; it underpins the macOS and Android operating systems; it even comes as an optional subsystem with Microsoft Windows!</p>
+<h2 id="a-simple-consistent-model">A simple, consistent model</h2>
+<p>So how does a niche operating system, that started in a telecoms research lab, get copied as a hobby project by a college student, and end up as the biggest operating system in the world? There are, no doubt, commercial and legal reasons for its success in an era when OS vendors were as famous for their lawsuits against one another as their technology, but its enduring technical appeal is in its simple and consistent <a href="https://en.wikipedia.org/wiki/Unix_philosophy">design philosophy</a>.</p>
+<p>The Unix philosophy says to write [components] that work together well&mdash;which we describe in the <a href="../composable/">Composable</a> property&mdash;and that <em>do one thing and do it well</em>.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> For instance, the <code>ls</code> command lists details about files and directories, but it does not <em>know anything</em> about files or directories! There is a system command called <code>stat</code> that provides the information; <code>ls</code> is just a tool for presenting that information as text.</p>
+<p>Likewise, the <code>cat</code> command prints (con<em>cat</em>enates) the contents of one or more files, <code>grep</code> selects text that matches a given pattern, <code>sed</code> replaces text patterns, and so on. The Unix command line has the powerful concept of &ldquo;pipes&rdquo; that attach the output of one command as the input to the next, creating a pipeline of selecting, transforming, filtering, sorting, and so on. You can write sophisticated text- and data-processing programs based on composing a handful of well-designed commands that each <em>does one thing, and does it well</em>.</p>
+<h2 id="single-purpose">Single purpose vs. single responsibility</h2>
+<p>At first glance this looks like the Single Responsibility Principle (SRP), and for certain interpretations of SRP there is some overlap. But &ldquo;doing one thing well&rdquo; is an outside-in perspective; it is the property of having a specific, well-defined, and comprehensive purpose. SRP is an inside-out perspective: it is about the organisation of code.</p>
+<p>The SRP, in the words of Robert C. Martin, who coined the term, is that [code] &ldquo;<a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">should have one, and only one, reason to change</a>.&rdquo; The example in the Wikipedia article is a module that produces a report, in which you should consider the content and format of the report as separate concerns which should live in separate classes, or even separate modules. As I <a href="https://dannorth.net/2021/03/16/cupid-the-back-story/#single-responsibility-principle">said elsewhere</a>, in my experience, this creates artificial seams, and the most common case is where the content and format of the data change together; a new field, for instance, or a change to the source of some data that impacts both its content and the way you want to display it.</p>
+<p>Another common scenario is a &ldquo;UI component&rdquo; where SRP mandates that you separate the rendering and business logic of the component. As a developer, having these living in different places leads to an administrative chore of chaining identical fields together. The greater risk is that this may be a premature optimisation preventing a more natural separation of concerns emerging as the codebase grows, and as components emerge that &ldquo;do one thing well&rdquo; and that are <a href="../domain-based/#domain-based-structure">better suited to the domain model</a> of the problem space. As any codebase grows, the time will come to separate it into sensible subcomponents, but the properties of Composability and Domain-based structure will be a better indicator of when and how to make these structural changes.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Beyond this, there is an elegant simplicity in the design of the Unix operating system: everything is a file; everything is either text or not text; we build entire programs by processing text through a series of transformations.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+<div class="edit-meta">
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://cupid.dev/properties/composable/" title="Composable"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Composable</a>
+<a class="nav nav-next" href="https://cupid.dev/properties/predictable/" title="Predictable">Next - Predictable <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">&copy; Daniel Terhorst-North, licensed under <a href="https://creativecommons.org/licenses/by/4.0/legalcode"><img class="img-small" src="/img/cc.png"> <img class="img-small" src="/img/by.png"> CC-BY</a>. Powered by <a href="https://gohugo.io">Hugo</a> using <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a> theme. Source available on <a href="https://github.com/cupiddev/website">GitHub</a></p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://cupid.dev/">Home</a></li>
+
+<li class="parent"><a href="https://cupid.dev/properties/">CUPID Properties</a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://cupid.dev/properties/composable/">Composable</a>
+  
+</li>
+
+<li class=" active"><a href="https://cupid.dev/properties/unix-philosophy/">Unix Philosophy</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/predictable/">Predictable</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/idiomatic/">Idiomatic</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/domain-based/">Domain-based</a>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/case-studies/">Case Studies</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/resources/">Resources</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/contribute/">Contribute</a>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

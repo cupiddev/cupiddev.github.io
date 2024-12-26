@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Predictable - CUPID - for joyful code</title>
+<meta name="generator" content="Hugo 0.140.1">
+<link href="https://cupid.dev//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://cupid.dev/properties/predictable/">
+<link rel="stylesheet" href="https://cupid.dev/css/theme.min.css">
+<link rel="stylesheet" href="https://cupid.dev/css/chroma.min.css">
+<script defer src="https://cupid.dev//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://cupid.dev/js/bundle.js"></script><style>
+:root {}
+</style>
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Predictable">
+  <meta name="twitter:description" content="Code should do what it looks like it does, consistently and reliably, with no unpleasant surprises. It should be not only possible but easy to confirm this. In this sense, predictability is a generalisation of testability.
+Predictable code should behave as expected, and should be deterministic and observable.
+Behaves as expected The first of Kent Beck’s four rules of simple design is that the code “passes all the tests”. This should be true even when there are no tests! The intended behaviour of predictable code should be obvious from its structure and naming. If there are no automated tests to exercise this, it should be easy to write some. Michael Feathers calls these characterisation tests. In his words:">
+
+  <meta itemprop="name" content="Predictable">
+  <meta itemprop="description" content="Code should do what it looks like it does, consistently and reliably, with no unpleasant surprises. It should be not only possible but easy to confirm this. In this sense, predictability is a generalisation of testability.
+Predictable code should behave as expected, and should be deterministic and observable.
+Behaves as expected The first of Kent Beck’s four rules of simple design is that the code “passes all the tests”. This should be true even when there are no tests! The intended behaviour of predictable code should be obvious from its structure and naming. If there are no automated tests to exercise this, it should be easy to write some. Michael Feathers calls these characterisation tests. In his words:">
+  <meta itemprop="datePublished" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="536"><link rel="stylesheet" href="/css/custom.css">
+<script src="https://cdn.usefathom.com/script.js" data-site="TORUOGKU" defer></script>
+</head>
+<body><div class="container"><header>
+<h1>CUPID - for joyful code</h1>
+</header>
+
+
+<div class="content-container">
+<main><h1>Predictable</h1><p>Code should do what it looks like it does, consistently and reliably, with no unpleasant surprises. It should be not only possible but easy to confirm this. In this sense, predictability is a generalisation of testability.</p>
+<p>Predictable code should <em>behave as expected</em>, and should be <em>deterministic</em> and <em>observable</em>.</p>
+<h2 id="behaves-as-expected">Behaves as expected</h2>
+<p>The first of Kent Beck&rsquo;s <a href="https://www.martinfowler.com/bliki/BeckDesignRules.html">four rules of simple design</a> is that the code &ldquo;passes all the tests&rdquo;. This should be true even when there are no tests! The intended behaviour of predictable code should be obvious from its structure and naming. If there are no automated tests to exercise this, it should be easy to write some. Michael Feathers calls these <a href="https://michaelfeathers.silvrback.com/characterization-testing">characterisation tests</a>. In his words:</p>
+<blockquote>
+<p>&ldquo;When a system goes into production, in a way, it becomes its own specification.&rdquo;&mdash;Michael Feathers</p>
+</blockquote>
+<p>This is not necessary, and I find that some people think of test-driven development as a religion rather than as a tool. I once worked on a complex algorithmic trading application that had around 7% &ldquo;test coverage&rdquo;. These tests were not evenly distributed! Much of the code had no automated tests at all, and some had crazy amounts of sophisticated tests, checking for subtle bugs and edge cases. I was confident making changes to most of the codebase, because each of the components did one thing, and its behaviour was straightforward and predictable, so the change was usually obvious.</p>
+<h2 id="deterministic">Deterministic</h2>
+<p>Software should do the same thing every time. Even code designed to be non-deterministic&mdash;say a random number generator or a dynamic calculation&mdash;will have operational or functional bounds that you can define. You should be able to predict memory, network, storage, or processing boundaries, time boundaries, and expectations on other dependencies.</p>
+<p>Determinism is a broad topic. For the purposes of predictabliity, deterministic code should be <em>robust</em>, <em>reliable</em>, and <em>resilient</em>.</p>
+<ul>
+<li><strong>Robustness</strong> is the <em>breadth or completeness</em> of situations that we cover. Limitations and edge cases should be obvious.</li>
+<li><strong>Reliability</strong> is <em>acting as expected</em> in situations that we cover. We should get the same results every time.</li>
+<li><strong>Resilience</strong> is how well we handle situations that we do not cover; <em>unexpected perturbations</em> in inputs or operating environment.</li>
+</ul>
+<h2 id="observable">Observable</h2>
+<p>Code should be observable in the <a href="https://en.wikipedia.org/wiki/Observability">control theory sense</a>: we can infer its internal state from its outputs. This is only possible when we design it in. As soon as several components are interacting, especially asynchronously, there will be emergent behaviour and non-linear consequences.</p>
+<p>Instrumenting code from the outset means we can gain valuable data to understand its runtime characteristics. I describe a four-stage model&mdash;with two bonus stages!&mdash;like this:</p>
+<ol>
+<li>
+<p><strong>Instrumentation</strong> is your software saying what it is doing.</p>
+</li>
+<li>
+<p><strong>Telemetry</strong> is making that information available, whether by pull&mdash;something asking&mdash;or push&mdash;sending messages; &ldquo;measurement at a distance&rdquo;.</p>
+</li>
+<li>
+<p><strong>Monitoring</strong> is receiving instrumentation and making it visible.</p>
+</li>
+<li>
+<p><strong>Alerting</strong> is reacting to the monitored data, or patterns in the data.</p>
+<p>Bonus:</p>
+</li>
+<li>
+<p><strong>Predicting</strong> is using this data to anticipate events before they happen.</p>
+</li>
+<li>
+<p><strong>Adapting</strong> is changing the system dynamically, either to preempt or recover from a predicted perturbation.</p>
+</li>
+</ol>
+<p>Most software does not even get past step 1. There are tools that will intercept or mutate running systems to add a level of insight, but these are never as good as deliberate instrumentation designed into an application.</p>
+<div class="edit-meta">
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://cupid.dev/properties/unix-philosophy/" title="Unix Philosophy"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Unix Philosophy</a>
+<a class="nav nav-next" href="https://cupid.dev/properties/idiomatic/" title="Idiomatic">Next - Idiomatic <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">&copy; Daniel Terhorst-North, licensed under <a href="https://creativecommons.org/licenses/by/4.0/legalcode"><img class="img-small" src="/img/cc.png"> <img class="img-small" src="/img/by.png"> CC-BY</a>. Powered by <a href="https://gohugo.io">Hugo</a> using <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a> theme. Source available on <a href="https://github.com/cupiddev/website">GitHub</a></p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://cupid.dev/">Home</a></li>
+
+<li class="parent"><a href="https://cupid.dev/properties/">CUPID Properties</a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://cupid.dev/properties/composable/">Composable</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/unix-philosophy/">Unix Philosophy</a>
+  
+</li>
+
+<li class=" active"><a href="https://cupid.dev/properties/predictable/">Predictable</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/idiomatic/">Idiomatic</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/domain-based/">Domain-based</a>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/case-studies/">Case Studies</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/resources/">Resources</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/contribute/">Contribute</a>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

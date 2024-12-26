@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Idiomatic - CUPID - for joyful code</title>
+<meta name="generator" content="Hugo 0.140.1">
+<link href="https://cupid.dev//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://cupid.dev/properties/idiomatic/">
+<link rel="stylesheet" href="https://cupid.dev/css/theme.min.css">
+<link rel="stylesheet" href="https://cupid.dev/css/chroma.min.css">
+<script defer src="https://cupid.dev//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://cupid.dev/js/bundle.js"></script><style>
+:root {}
+</style>
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Idiomatic">
+  <meta name="twitter:description" content="Everyone has their own coding style. Whether it be spaces vs. tabs, size of indentation, variable naming conventions, placement of curly braces or parentheses, layout of code in a source file, or myriad other possibilities. Onto this we can layer the choices of libraries, toolchain, path to live, even version control comment style or commit granularity. (You do use version control, don’t you?)
+This can add significant extraneous cognitive load to working with unfamiliar code. As well as understanding the problem domain and the solution space, you have to interpret what someone else meant, and whether their decisions were deliberate and contextual, or arbitrary and habitual.">
+
+  <meta itemprop="name" content="Idiomatic">
+  <meta itemprop="description" content="Everyone has their own coding style. Whether it be spaces vs. tabs, size of indentation, variable naming conventions, placement of curly braces or parentheses, layout of code in a source file, or myriad other possibilities. Onto this we can layer the choices of libraries, toolchain, path to live, even version control comment style or commit granularity. (You do use version control, don’t you?)
+This can add significant extraneous cognitive load to working with unfamiliar code. As well as understanding the problem domain and the solution space, you have to interpret what someone else meant, and whether their decisions were deliberate and contextual, or arbitrary and habitual.">
+  <meta itemprop="datePublished" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="803"><link rel="stylesheet" href="/css/custom.css">
+<script src="https://cdn.usefathom.com/script.js" data-site="TORUOGKU" defer></script>
+</head>
+<body><div class="container"><header>
+<h1>CUPID - for joyful code</h1>
+</header>
+
+
+<div class="content-container">
+<main><h1>Idiomatic</h1><p>Everyone has their own coding style. Whether it be spaces vs. tabs, size of indentation, variable naming conventions, placement of curly braces or parentheses, layout of code in a source file, or myriad other possibilities. Onto this we can layer the choices of libraries, toolchain, path to live, even version control comment style or commit granularity. (You do use version control, don&rsquo;t you?)</p>
+<p>This can add significant <a href="https://en.wikipedia.org/wiki/Cognitive_load">extraneous cognitive load</a> to working with unfamiliar code. As well as understanding the problem domain and the solution space, you have to interpret what someone else meant, and whether their decisions were deliberate and contextual, or arbitrary and habitual.</p>
+<p>The greatest programming trait is empathy; empathy for your users; empathy for support folks; empathy for future developers; any of whom may be future you. Writing &ldquo;code that humans can understand&rdquo; means writing code for <em>someone else</em>. This is what idiomatic code means.</p>
+<p>In this context, your target audience is:</p>
+<ul>
+<li>familar with the language, its libraries, its toolchain, and its ecosystem</li>
+<li>an experienced programmer who understands software development</li>
+<li>trying to get work done!</li>
+</ul>
+<h2 id="language-idioms">Language idioms</h2>
+<p>Code should conform to the idioms of the language. Some languages have strong opinions about how code should look, which makes it easy to assess how idiomatic your code is. Others are less opinionated, which puts the onus on you to &ldquo;choose a style&rdquo; and then stick to it. Go and Python are two examples of an opinionated language.</p>
+<p>Python programmers use the term &ldquo;pythonic&rdquo; to describe idiomatic code. There is a wonderful <a href="https://en.wikipedia.org/wiki/Easter_egg_(media)">Easter egg</a> that appears if you <code>import this</code> from the Python REPL, or run <code>python -m this</code> from a shell. It prints a list of programming aphorisms called &ldquo;The Zen of Python&rdquo;, which includes this line, capturing the spirit of idiomatic code: &ldquo;There should be one&mdash;and preferably only one&mdash;obvious way to do it.&rdquo;</p>
+<p>The Go language ships with a code formatter called <code>gofmt</code> which makes all source code look the same. This eliminates at a stroke any disagreements about indentation, braces placement, or other syntactic quirks. It means that any code examples you see in the library docs or tutorials look consistent. They even have a document called <a href="https://go.dev/doc/effective_go">Effective Go</a> that showcases idiomatic Go, beyond the language definition.</p>
+<p>At the other end of the spectrum are languages like Scala, Ruby<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, JavaScript, and the venerable Perl. These languages are deliberately multi-paradigm; Perl coined the acronym TIMTOWTDI&mdash;&ldquo;there is more than one way to do it&rdquo;&mdash;pronounced &ldquo;Tim Toady&rdquo;. You can write functional, procedural, or object-oriented code in most of them, which creates a shallow learning curve from whichever language you know.</p>
+<p>For something as simple as processing a sequence of values, most of these languages let you:</p>
+<ul>
+<li>use an iterator</li>
+<li>use an indexed for-loop</li>
+<li>use a conditional while-loop</li>
+<li>use a function pipeline with a collector (&ldquo;map-reduce&rdquo;)</li>
+<li>write a tail-recursive function</li>
+</ul>
+<p>This means that in any non-trivial size of code, you will likely find examples of each of these, often in combination with each other. Again, this all adds cognitive load, impacting your capacity to think about the problem at hand, increasing uncertainty, and reducing joy.</p>
+<p>Code idioms occur at all levels of granularity: naming functions, types, parameters, modules; layout of code; structure of modules; choice of tools; choice of dependencies; how you manage dependencies; and so on.</p>
+<p>Wherever your technology stack lies on the spectrum of opinionatedness, the code you write will be more empathic and joyful if you take the time to learn the idioms of the language, its ecosystem, its community, and its preferred style.</p>
+<p>Your learning curve for a technology will likely be shorter-lived than any code you write in it, so it is important to resist the urge to write code that reads well <em>to you right now</em>, because that person will not be around for long! The only way to be confident that you are writing idiomatic code is to take the time to learn the idioms.</p>
+<h2 id="local-idioms">Local idioms</h2>
+<p>When a language has no consensus around idiomatic style, or several alternatives, it is up to you and your team to decide what &ldquo;good&rdquo; looks like, and to introduce constraints and guidelines to encourage consistency. These constraints can be as simple as shared code formatting rules in your IDE, &ldquo;build cop&rdquo; tools that <a href="https://en.wikipedia.org/wiki/Lint_(software)">lint</a> and critique code, and agreement on a standard toolchain.</p>
+<p>Architecture Decision Records<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, or ADRs, are a great way to document your choices about style and idioms. These are no less &ldquo;significant technical decisions&rdquo; than any other architectural discussion.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Ruby may be an outlier here, in that there is definitely a &ldquo;Ruby aesthetic&rdquo; and various people have written about &ldquo;<a href="https://www.freecodecamp.org/news/idiomatic-ruby-writing-beautiful-code-6845c830c664/">idiomatic Ruby</a>&rdquo;, but this is still individuals sharing their preferred programming style rather than anything intrinsic to the community.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Architecture Decision Records were <a href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions">first proposed</a> by Michael Nygard in 2011, and have <a href="https://adr.github.io">been evolving</a> ever since.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+<div class="edit-meta">
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://cupid.dev/properties/predictable/" title="Predictable"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Predictable</a>
+<a class="nav nav-next" href="https://cupid.dev/properties/domain-based/" title="Domain-based">Next - Domain-based <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">&copy; Daniel Terhorst-North, licensed under <a href="https://creativecommons.org/licenses/by/4.0/legalcode"><img class="img-small" src="/img/cc.png"> <img class="img-small" src="/img/by.png"> CC-BY</a>. Powered by <a href="https://gohugo.io">Hugo</a> using <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a> theme. Source available on <a href="https://github.com/cupiddev/website">GitHub</a></p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://cupid.dev/">Home</a></li>
+
+<li class="parent"><a href="https://cupid.dev/properties/">CUPID Properties</a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://cupid.dev/properties/composable/">Composable</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/unix-philosophy/">Unix Philosophy</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/predictable/">Predictable</a>
+  
+</li>
+
+<li class=" active"><a href="https://cupid.dev/properties/idiomatic/">Idiomatic</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/domain-based/">Domain-based</a>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/case-studies/">Case Studies</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/resources/">Resources</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/contribute/">Contribute</a>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

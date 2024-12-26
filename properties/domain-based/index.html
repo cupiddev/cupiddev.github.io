@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Domain-based - CUPID - for joyful code</title>
+<meta name="generator" content="Hugo 0.140.1">
+<link href="https://cupid.dev//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://cupid.dev/properties/domain-based/">
+<link rel="stylesheet" href="https://cupid.dev/css/theme.min.css">
+<link rel="stylesheet" href="https://cupid.dev/css/chroma.min.css">
+<script defer src="https://cupid.dev//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://cupid.dev/js/bundle.js"></script><style>
+:root {}
+</style>
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Domain-based">
+  <meta name="twitter:description" content="We write software to meet a need. This may be specific and situational, or generic and far-reaching. Whatever its purpose, code should convey what it is doing in the language of the problem domain, to minimise the cognitive distance between what you write and what it does. This is more than “using the right words”.
+Domain-based language Programming languages and their libraries are full of computer science-y constructs like Hash Maps, Linked Lists, Tree Sets, Database Connections, and so on. They have basic types comprising integers, characters, boolean values. You can declare someone’s surname as a string[30], which may well be how it gets stored, but defining a Surname type will be more intention-revealing. It may even have surname-related operations, properties, or constraints on it. Many subtle bugs in banking software are due to representing money amounts as floating point values; experienced financial software programmers will define a Money type with a Currency and an Amount, which itself is a compound type.">
+
+  <meta itemprop="name" content="Domain-based">
+  <meta itemprop="description" content="We write software to meet a need. This may be specific and situational, or generic and far-reaching. Whatever its purpose, code should convey what it is doing in the language of the problem domain, to minimise the cognitive distance between what you write and what it does. This is more than “using the right words”.
+Domain-based language Programming languages and their libraries are full of computer science-y constructs like Hash Maps, Linked Lists, Tree Sets, Database Connections, and so on. They have basic types comprising integers, characters, boolean values. You can declare someone’s surname as a string[30], which may well be how it gets stored, but defining a Surname type will be more intention-revealing. It may even have surname-related operations, properties, or constraints on it. Many subtle bugs in banking software are due to representing money amounts as floating point values; experienced financial software programmers will define a Money type with a Currency and an Amount, which itself is a compound type.">
+  <meta itemprop="datePublished" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="994"><link rel="stylesheet" href="/css/custom.css">
+<script src="https://cdn.usefathom.com/script.js" data-site="TORUOGKU" defer></script>
+</head>
+<body><div class="container"><header>
+<h1>CUPID - for joyful code</h1>
+</header>
+
+
+<div class="content-container">
+<main><h1>Domain-based</h1><p>We write software to meet a need. This may be specific and situational, or generic and far-reaching. Whatever its purpose, code should convey what it is doing in the language of the problem domain, to minimise the cognitive distance between what you write and what it does. This is more than &ldquo;using the right words&rdquo;.</p>
+<h3 id="domain-based-language">Domain-based language</h3>
+<p>Programming languages and their libraries are full of computer science-y constructs like Hash Maps, Linked Lists, Tree Sets, Database Connections, and so on. They have basic types comprising integers, characters, boolean values. You can declare someone&rsquo;s surname as a <code>string[30]</code>, which may well be how it gets stored, but defining a <code>Surname</code> type will be more intention-revealing. It may even have surname-related operations, properties, or constraints on it. Many subtle bugs in banking software are due to representing money amounts as floating point values; experienced financial software programmers will define a <code>Money</code> type with a <code>Currency</code> and an <code>Amount</code>, which itself is a compound type.</p>
+<p>Naming types and operations well is not just about catching or preventing bugs, but about making it easy to articulate and navigate the solution space in code. I made this my contribution to &ldquo;<a href="https://www.oreilly.com/library/view/97-things-every/9780596809515/">97 Things Every Programmer Should Know</a>&rdquo;, as &ldquo;Code in the Language of the Domain&rdquo;.</p>
+<p>One criterion for success with domain-driven code is that a casual observer cannot tell whether people are discussing the code or the domain. I experienced this once in an electronic trading system, where a financial analyst was discussing complex trade pricing logic with two programmers. I thought they were discussing the rules of pricing, but they were pointing at a screenful of code and the analyst was talking the programmers through the pricing algorithm, which was line-for-line how the code read! The only cognitive distance between the problem domain and the solution code was some syntax punctuation!</p>
+<h3 id="domain-based-structure">Domain-based structure</h3>
+<p>Using domain-based language is important, but how you structure your code can be just as significant. Many frameworks offer a &ldquo;skeleton project&rdquo; with a directory layout and stubbed files designed to get you started quickly. This imposes an <em>a priori</em> structure on your code that has nothing to do with the problem you are solving.</p>
+<p>Instead, the layout of code&mdash;the directory names, the relationships of child and sibling folders, the grouping and naming of related files&mdash;should mirror the problem domain as closely as possible.</p>
+<p>The app framework <a href="https://rubyonrails.org">Ruby on Rails</a> popularised this approach in the early 2000s by <a href="https://guides.rubyonrails.org/getting_started.html#creating-the-blog-application">building it in</a> to its tooling, and Rails&rsquo; widespread adoption meant that many later frameworks have copied the idea. CUPID is agnostic to languages and frameworks, but Rails makes a useful case study for understanding the difference between domain-based and framework-based structure.</p>
+<p>Below is part of the directory layout of a generated skeleton Rails app, focusing on the directory (<code>app</code>) where a developer will spend most of their time. The full skeleton runs to around 50 directories containing 60 files<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, at the time of writing.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>app
+</span></span><span style="display:flex;"><span>├── assets
+</span></span><span style="display:flex;"><span>│   ├── config
+</span></span><span style="display:flex;"><span>│   ├── images
+</span></span><span style="display:flex;"><span>│   └── stylesheets
+</span></span><span style="display:flex;"><span>├── channels
+</span></span><span style="display:flex;"><span>│   └── application_cable
+</span></span><span style="display:flex;"><span>├── controllers
+</span></span><span style="display:flex;"><span>│   └── concerns
+</span></span><span style="display:flex;"><span>├── helpers
+</span></span><span style="display:flex;"><span>├── javascript
+</span></span><span style="display:flex;"><span>│   └── controllers
+</span></span><span style="display:flex;"><span>├── jobs
+</span></span><span style="display:flex;"><span>├── mailers
+</span></span><span style="display:flex;"><span>├── models
+</span></span><span style="display:flex;"><span>│   └── concerns
+</span></span><span style="display:flex;"><span>└── views
+</span></span><span style="display:flex;"><span>    └── layouts
+</span></span></code></pre></div><p>Imagine this will be a hospital management app, with a section for patient records. This layout suggests that we will need at least:</p>
+<ul>
+<li>a <em>model</em>, which maps to a database somewhere</li>
+<li>a <em>view</em>, which renders the patient record on a screen</li>
+<li>a <em>controller</em>, which mediates between views and models</li>
+</ul>
+<p>Then there is scope for <em>helpers</em>, <em>assets</em>, and several other framework concepts, such as <em>model concerns</em> or <em>controller concerns</em>, <em>mailers</em>, <em>jobs</em>, <em>channels</em>, and maybe a JavaScript controller to go with your Ruby controller. Each of these artefacts lives in a separate directory, even though they are semantically tightly integrated.</p>
+<p>The likelihood is that any non-trivial change to patient record management will involve code scattered all over the codebase. The SOLID principle of Single Responsibility says that view code should be separate from controller code, and frameworks like Rails interpret this to mean having them in completely different places. This increases cognitive load, reduces cohesion, and adds to the effort of making product changes. As I <a href="../unix-philosophy/#single-purpose">mention elsewhere</a>, this ideological constraint can make the work harder, and the codebase less joyful.</p>
+<p>We still need artefacts like models, views, and controllers, whichever way we lay out the code, but grouping them by type should not form the primary structure. Instead, the top level of the codebase should show the primary use cases of hospital management; maybe <code>patient_history</code>, <code>appointments</code>, <code>staffing</code>, and <code>compliance</code>.</p>
+<p>Taking a domain-based approach to the code structure makes it easy to understand what the code is there for, and easy to navigate to wherever you need to be for anything more complicated than &ldquo;make that button light blue&rdquo;.</p>
+<h3 id="domain-based-boundaries">Domain-based boundaries</h3>
+<p>When we structure the code the way we want, and name it the way we want, module boundaries become domain boundaries, and deployment becomes straightforward. Everything we need to deploy a component as a single artefact is together, so we can align domain boundaries with deployment boundaries and deploy cohesive business components and services. Whether you package your products or services as a single monolith, many small microservices, or anywhere between, this alignment reduces the complexity of your path to live, and makes it less likely that you will forget something, or include artefacts from a different environment or a different subsystem.</p>
+<p>This does not limit us to a single, flat, top level of code structure. Domains can contain subdomains; components can contain subcomponents; deployments can happen at whatever level of granularity makes sense for your change and risk profile. Aligning the code boundaries with the domain boundaries makes all these options easier to reason about and easier to manage.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>There is a whole other discussion about how much scaffolding and generated boilerplate a framework should impose on the developer for a &ldquo;pristine&rdquo; project, which is beyond the scope of this article.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+<div class="edit-meta">
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://cupid.dev/properties/idiomatic/" title="Idiomatic"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Idiomatic</a>
+<a class="nav nav-next" href="https://cupid.dev/case-studies/" title="Case Studies">Next - Case Studies <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">&copy; Daniel Terhorst-North, licensed under <a href="https://creativecommons.org/licenses/by/4.0/legalcode"><img class="img-small" src="/img/cc.png"> <img class="img-small" src="/img/by.png"> CC-BY</a>. Powered by <a href="https://gohugo.io">Hugo</a> using <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a> theme. Source available on <a href="https://github.com/cupiddev/website">GitHub</a></p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://cupid.dev/">Home</a></li>
+
+<li class="parent"><a href="https://cupid.dev/properties/">CUPID Properties</a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://cupid.dev/properties/composable/">Composable</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/unix-philosophy/">Unix Philosophy</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/predictable/">Predictable</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/idiomatic/">Idiomatic</a>
+  
+</li>
+
+<li class=" active"><a href="https://cupid.dev/properties/domain-based/">Domain-based</a>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/case-studies/">Case Studies</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/resources/">Resources</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/contribute/">Contribute</a>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

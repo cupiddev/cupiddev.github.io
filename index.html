@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>CUPID - for joyful code</title>
+<meta name="generator" content="Hugo 0.140.1">
+<link href="https://cupid.dev//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://cupid.dev/">
+<link rel="stylesheet" href="https://cupid.dev/css/theme.min.css">
+<link rel="stylesheet" href="https://cupid.dev/css/chroma.min.css">
+<script defer src="https://cupid.dev//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://cupid.dev/js/bundle.js"></script><style>
+:root {}
+</style>
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CUPID - for joyful code">
+  <meta name="twitter:description" content="CUPID - for joyful coding This website is based on an article by Daniel Terhorst-North, describing properties of joyful code.
+I believe that there are properties or characteristics of software that make it a joy to work with. The more your code has these qualities, the more joyful it is to work with; but everything is a tradeoff so you should always consider your context.
+There are likely many of these properties, overlapping and interrelating, and there are many ways to describe them. I have chosen five that underpin much of what I care about in code. There is a diminishing return; five are enough to make a handy acronym, and few enough to remember.">
+
+  <meta itemprop="name" content="CUPID - for joyful code">
+  <meta itemprop="description" content="CUPID - for joyful coding This website is based on an article by Daniel Terhorst-North, describing properties of joyful code.
+I believe that there are properties or characteristics of software that make it a joy to work with. The more your code has these qualities, the more joyful it is to work with; but everything is a tradeoff so you should always consider your context.
+There are likely many of these properties, overlapping and interrelating, and there are many ways to describe them. I have chosen five that underpin much of what I care about in code. There is a diminishing return; five are enough to make a handy acronym, and few enough to remember.">
+  <meta itemprop="datePublished" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1064"><link rel="stylesheet" href="/css/custom.css">
+<script src="https://cdn.usefathom.com/script.js" data-site="TORUOGKU" defer></script>
+</head>
+<body><div class="container"><header>
+<h1>CUPID - for joyful code</h1>
+</header>
+
+
+<div class="content-container">
+<main><h1 id="cupid---for-joyful-coding">CUPID - for joyful coding</h1>
+<p><em>This website is based on <a href="https://dannorth.net/2022/02/10/cupid-for-joyful-coding/">an article by Daniel Terhorst-North</a>, describing properties of joyful code.</em></p>
+<p>I believe that there are properties or characteristics of software that make it a joy to work with. The more your code has these qualities, the more joyful it is to work with; but everything is a tradeoff so you should always consider your context.</p>
+<p>There are likely many of these properties, overlapping and interrelating, and there are many ways to describe them. I have chosen five that underpin much of what I care about in code. There is a diminishing return; five are enough to make a handy acronym, and few enough to remember.</p>
+<p>The five CUPID properties are:</p>
+<ul>
+<li><strong><a href="properties/composable/">Composable</a>:</strong> plays well with others</li>
+<li><strong><a href="properties/unix-philosophy/">Unix philosophy</a>:</strong> does one thing well</li>
+<li><strong><a href="properties/predictable/">Predictable</a>:</strong> does what you expect</li>
+<li><strong><a href="properties/idiomatic/">Idiomatic</a>:</strong> feels natural</li>
+<li><strong><a href="properties/domain-based/">Domain-based</a>:</strong> the code models the problem domain in language and structure</li>
+</ul>
+<aside class="content-aside">
+<h2 id="preamble-a-long-time-agohellip">Preamble: a long time ago…</h2>
+<p>Have you ever cracked open an unfamiliar codebase and just <em>known</em> how to get around? The structure, the naming, the flow is obvious, familiar somehow. A smile appears on your face. &ldquo;I&rsquo;ve got this!&rdquo; you think.</p>
+<p>I have been lucky enough to experience this a handful of times over a thirty-year career, and each time it has filled me with joy. The first time was in the early 1990s&mdash;I remember it vividly&mdash;when I cracked open a huge C codebase that did complex image manipulation for digital printing. There was a bug in Someone Else&rsquo;s Code™, and I was to track it down and fix it. I remember the feeling, as a rookie programmer: a mixture of dread and the fear of betraying myself as the amateur I knew I was.</p>
+<p>My editor&mdash;vi with ctags&mdash;allowed me to navigate to the function definitions from call sites, and within a few minutes I was deep in a nest of calls, in a codebase of many hundreds of source and header files, <em>feeling confident I knew what I was looking at</em>. I quickly found the culprit, which was a simple logic error, made a change, built the code, and tested it. This was all without automated testing, just using Makefiles. TDD was almost a decade in my future and C did not have those kinds of tool in any case.</p>
+<p>I ran the transform on several sample images and they came out looking ok. I was as confident as I could be that I had a) found and fixed the bug, and b) not introduced any nasty surprises at the same time.</p>
+</aside>
+<h2 id="joyful-software">Joyful software</h2>
+<p>Some code is a delight to work with. You know how to find what you need to work on. You know how to make the change you need. The code is easy to navigate, easy to understand, easy to reason about. You feel confident that your change will have the effect you wanted without any undue side-effects. The code <em>guides you</em>, invites you to look around. The programmer(s) who came before you cared about the person who would come along later, maybe because they realised that the programmer who came along later might be them!</p>
+<p>In his seminal book, &ldquo;Refactoring&rdquo;, Martin Fowler says:</p>
+<blockquote>
+<p>&ldquo;Any fool can write code that a computer can understand. Good programmers write code that humans can understand.&rdquo;</p>
+<p>—<em><a href="https://martinfowler.com/books/refactoring.html" title="Refactoring: Improving the Design of Existing Code">Refactoring</a>, Martin Fowler with Kent Beck, 1996</em></p>
+</blockquote>
+<p>I read this in the early 2000s and his words turned my programming world on its head. What if good programming is about making code understandable <em>to other humans</em>? What if one of those humans is future me? That sounded like something to aspire to.</p>
+<p>But while &ldquo;understandable&rdquo; might be a noble aspiration, it is not that high a bar! Around the same time that Martin was writing about refactoring, computing pioneer <a href="https://www.dreamsongs.com" title="Dreamsongs">Richard P. Gabriel</a>  described the idea of code being <em>habitable</em>:</p>
+<blockquote>
+<p>“Habitability is the characteristic of source code that enables [people] to understand its construction and intentions and to change it comfortably and confidently.</p>
+<p>“Habitability makes a place liveable, like home.”</p>
+<p>—<em>Habitability and Piecemeal Growth<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, <a href="https://www.dreamsongs.com/Files/PatternsOfSoftware.pdf" title="Patterns of Software: Tales from the Software Community">Patterns of Software</a> pp. 7-16, Richard P. Gabriel</em></p>
+</blockquote>
+<p>This feels more like something to strive for. How nice would it be to feel <em>comfortable</em> and <em>confident</em> changing other people&rsquo;s code? And if we can make code habitable, what about <em>joyful</em>? Is it possible for a codebase to fill you with joy?</p>
+<p>If you spend your working days programming, then navigating and manipulating a codebase defines your user experience. You can experience surprise, frustration, dread, anticipation, helplessness, hope, joy, all because of the choices that earlier programmers made in the codebase.</p>
+<p>If we assume it is possible for a codebase to be joyful, is each codebase its own special snowflake whose impact on your psyche is unique? Or can we articulate what makes it joyful, and offer a path towards increasing the joy in the code that we touch?</p>
+<h2 id="where-next">Where next?</h2>
+<p>I believe code that possesses more of these properties&mdash;of composability, Unix philosophy, predictability, or being idiomatic or domain-based&mdash;is more pleasing to work with than code that does not. While I value each characteristic independently, I find they are mutually reinforcing.</p>
+<p>Code that is both composable and comprehensive&mdash;doing one thing well&mdash;is like a reliable friend. Idiomatic code feels familiar even though you have never seen it before. Predictable code gives you spare cycles to concentrate on surprises elsewhere. Domain-based code minimises the cognitive distance from need to solution. Moving code towards the &ldquo;centre&rdquo; of any of these properties leaves it better than you found it.</p>
+<p>Because CUPID is a <a href="https://en.wikipedia.org/wiki/Backronym">backronym</a>, I had several candidates for each letter. I chose these five because they feel &ldquo;foundational&rdquo; somehow; we can derive all the other candidate properties from these. Future articles will explore some of the shortlist properties that did not make the cut, and look at how they are natural consequences of writing CUPID software.</p>
+<p>I am keen to hear of people&rsquo;s adventures with CUPID. I am already hearing about teams using these properties to assess their code, and to develop strategies to clean up legacy codebases, and I cannot wait to hear experience reports and case studies. In the meantime I want to go deeper with CUPID, exploring each of the properties in turn, to see what else has been hiding in plain sight.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>I recommend anyone involved in software development, not just programmers, read this short essay. It is a profound and beautiful piece of writing.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+<nav class="pagination"><a class="nav nav-next" href="https://cupid.dev/properties/" title="CUPID Properties">Next - CUPID Properties <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><div class="edit-meta">
+<br></div><footer><p class="powered">&copy; Daniel Terhorst-North, licensed under <a href="https://creativecommons.org/licenses/by/4.0/legalcode"><img class="img-small" src="/img/cc.png"> <img class="img-small" src="/img/by.png"> CC-BY</a>. Powered by <a href="https://gohugo.io">Hugo</a> using <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a> theme. Source available on <a href="https://github.com/cupiddev/website">GitHub</a></p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class="active"><a href="https://cupid.dev/">Home</a></li>
+
+<li class=""><a href="https://cupid.dev/properties/">CUPID Properties</a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://cupid.dev/properties/composable/">Composable</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/unix-philosophy/">Unix Philosophy</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/predictable/">Predictable</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/idiomatic/">Idiomatic</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/domain-based/">Domain-based</a>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/case-studies/">Case Studies</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/resources/">Resources</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/contribute/">Contribute</a>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

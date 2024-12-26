@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Composable - CUPID - for joyful code</title>
+<meta name="generator" content="Hugo 0.140.1">
+<link href="https://cupid.dev//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://cupid.dev/properties/composable/">
+<link rel="stylesheet" href="https://cupid.dev/css/theme.min.css">
+<link rel="stylesheet" href="https://cupid.dev/css/chroma.min.css">
+<script defer src="https://cupid.dev//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://cupid.dev/js/bundle.js"></script><style>
+:root {}
+</style>
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Composable">
+  <meta name="twitter:description" content="Software that is easy to use gets used, and used, and used again. There are characteristics that make code more or less composable, but these are neither necessary nor sufficient to make any guarantees. In each case we can find counterexamples on both sides, so you should think of these as useful heuristics. More is not necessarily better; it is all trade-offs.
+Small surface area Code with a narrow, opinionated API has less for you to learn, less to go wrong, and less chance of conflict or inconsistency with other code you are using. This has a diminishing return; if your APIs are too narrow, you find yourself using groups of them together, and knowing “the right combination” for common use cases becomes tacit knowledge that can be a barrier to entry. Getting the granularity of an API right is harder than it looks. There is a sweet spot of “just right” cohesion between fragmented and bloated.">
+
+  <meta itemprop="name" content="Composable">
+  <meta itemprop="description" content="Software that is easy to use gets used, and used, and used again. There are characteristics that make code more or less composable, but these are neither necessary nor sufficient to make any guarantees. In each case we can find counterexamples on both sides, so you should think of these as useful heuristics. More is not necessarily better; it is all trade-offs.
+Small surface area Code with a narrow, opinionated API has less for you to learn, less to go wrong, and less chance of conflict or inconsistency with other code you are using. This has a diminishing return; if your APIs are too narrow, you find yourself using groups of them together, and knowing “the right combination” for common use cases becomes tacit knowledge that can be a barrier to entry. Getting the granularity of an API right is harder than it looks. There is a sweet spot of “just right” cohesion between fragmented and bloated.">
+  <meta itemprop="datePublished" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-02-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="415"><link rel="stylesheet" href="/css/custom.css">
+<script src="https://cdn.usefathom.com/script.js" data-site="TORUOGKU" defer></script>
+</head>
+<body><div class="container"><header>
+<h1>CUPID - for joyful code</h1>
+</header>
+
+
+<div class="content-container">
+<main><h1>Composable</h1><p>Software that is easy to use gets used, and used, and used again. There are characteristics that make code more or less composable, but these are neither necessary nor sufficient to make any guarantees. In each case we can find counterexamples on both sides, so you should think of these as useful heuristics. More is not necessarily better; it is all trade-offs.</p>
+<h2 id="small-surface-area">Small surface area</h2>
+<p>Code with a narrow, opinionated API has less for you to learn, less to go wrong, and less chance of conflict or inconsistency with other code you are using. This has a diminishing return; if your APIs are too narrow, you find yourself using groups of them together, and knowing &ldquo;the right combination&rdquo; for common use cases becomes tacit knowledge that can be a barrier to entry. Getting the granularity of an API right is harder than it looks. There is a sweet spot of &ldquo;just right&rdquo; cohesion between fragmented and bloated.</p>
+<h2 id="intention-revealing">Intention-revealing</h2>
+<p>Intention-revealing code is easy to discover and easy to assess. I can easily find your component, and just as quickly decide whether it is the thing I need or not. One model I like&mdash;from open-source projects like the venerable <a href="https://x-stream.github.io/tutorial.html">XStream</a>&mdash;is having a 2-minute tutorial, a 10-minute tutorial, and a deep dive. This lets me invest incrementally, and switch out as soon as I figure out that this is not for me.</p>
+<p>More than once I have started writing a class by giving it an intention-revealing name, only for the IDE to pop up a suggested import with the same name. It usually turned out that someone else had the same idea, and I serendipitously found their code because we chose similar names. This was not just coincidence; we were fluent in the same domain which made it more likely that we would pick similar names. This is more likely when you have <a href="../domain-based/">domain-based</a> code.</p>
+<h2 id="minimal-dependencies">Minimal dependencies</h2>
+<p>Code with minimal dependencies gives you less to worry about, and reduces the likelihood of version or library incompatibilities. I wrote my first open source project, <a href="https://github.com/codehaus/xjb">XJB</a>, in Java, and used the near-ubiquituous <code>log4j</code> logging framework. A colleague pointed out that this created a dependency, not only on <code>log4j</code> as a library, but on a specific version. It had not even occurred to me; why should anyone worry about something as innocuous as a logging library? So we <a href="https://github.com/codehaus/xjb/commit/ed711436dcdb88b129a15f779a72f4247680ef0e">removed the dependencies</a>, and even extracted a <a href="https://github.com/proxytoys">whole other project</a> that did fun things with Java dynamic proxies, which itself had minimal dependencies.</p>
+<div class="edit-meta">
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://cupid.dev/properties/" title="CUPID Properties"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - CUPID Properties</a>
+<a class="nav nav-next" href="https://cupid.dev/properties/unix-philosophy/" title="Unix Philosophy">Next - Unix Philosophy <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">&copy; Daniel Terhorst-North, licensed under <a href="https://creativecommons.org/licenses/by/4.0/legalcode"><img class="img-small" src="/img/cc.png"> <img class="img-small" src="/img/by.png"> CC-BY</a>. Powered by <a href="https://gohugo.io">Hugo</a> using <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a> theme. Source available on <a href="https://github.com/cupiddev/website">GitHub</a></p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://cupid.dev/">Home</a></li>
+
+<li class="parent"><a href="https://cupid.dev/properties/">CUPID Properties</a>
+  
+<ul class="sub-menu">
+
+<li class=" active"><a href="https://cupid.dev/properties/composable/">Composable</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/unix-philosophy/">Unix Philosophy</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/predictable/">Predictable</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/idiomatic/">Idiomatic</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/properties/domain-based/">Domain-based</a>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/case-studies/">Case Studies</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/resources/">Resources</a>
+  
+</li>
+
+<li class=""><a href="https://cupid.dev/contribute/">Contribute</a>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
